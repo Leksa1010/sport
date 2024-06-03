@@ -1,12 +1,13 @@
 package rs.ac.singidunum.sport.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rs.ac.singidunum.sport.Gender;
 import rs.ac.singidunum.sport.entity.Athlete;
-import rs.ac.singidunum.sport.repository.AthleteRepository;
+import rs.ac.singidunum.sport.service.AthleteService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/athlete")
@@ -14,15 +15,20 @@ import java.util.List;
 @CrossOrigin
 public class AthleteController {
 
-    private final AthleteRepository repository;
+    private final AthleteService service;
 
     @GetMapping
     public List<Athlete> getAllAthletes() {
-        return repository.findAll();
+        return service.getAllAthletes();
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Athlete> getAthleteById(@PathVariable Integer id) {
-        return ResponseEntity.of(repository.findById(id));
+    public Optional<Athlete> getAthleteById(@PathVariable Integer id) {
+        return service.getAthleteById(id);
+    }
+
+    @GetMapping(path = "/gender/{gender}")
+    public List<Athlete> getAthleteByGender(@PathVariable Gender gender) {
+        return service.getAthleteByGender(gender);
     }
 }
