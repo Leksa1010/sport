@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/athlete")
+@RequestMapping(path = "/api/athlete")
 @RequiredArgsConstructor
 @CrossOrigin
 public class AthleteController {
