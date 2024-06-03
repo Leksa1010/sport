@@ -11,8 +11,8 @@ fetch('http://localhost:8000/api/athlete')
             copy.querySelector('.surname').innerText = athlete.surname
             copy.querySelector('.gender').innerText = athlete.gender
             copy.querySelector('.created').innerText = new Date(athlete.createdAt).toLocaleString('sr-RS')
-            copy.querySelector('.sport').innerText = athlete.sportId
-            copy.querySelector('.coach').innerText = athlete.coachId
+            // copy.querySelector('.sport').innerText = athlete.sportId
+            // copy.querySelector('.coach').innerText = athlete.coachId
             table.appendChild(copy)
         })
     })
