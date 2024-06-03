@@ -22,12 +22,12 @@ public class AthleteController {
         return service.getAllAthletes();
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/id/{id}")
     public Optional<Athlete> getAthleteById(@PathVariable Integer id) {
         return service.getAthleteById(id);
     }
 
-    @GetMapping(path = "/{name}")
+    @GetMapping(path = "/name/{name}")
     public Optional<Athlete> getAthleteByName(@PathVariable String name) {
         return service.getAthleteByName(name);
     }
