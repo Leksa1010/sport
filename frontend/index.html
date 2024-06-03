@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport za sve</title>
+</head>
+<body>
+    <ul id="list">
+        <script>
+            const list = document.getElementById('list')
+            fetch('http://localhost:8000/athlete')
+                .then(rsp => rsp.json())
+                .then(data => {
+                    data.forEach(athlete => {
+                        const li = document.createElement('li')
+                        li.innerText = `${athlete.id} ${athlete.name} ${athlete.surname} ${athlete.gender} ${new Date(athlete.createdAt).toLocaleString('sr-RS')}`
+                        list.appendChild(li)
+                    })
+                })
+        </script>
+    </ul>
+</body>
+</html>
