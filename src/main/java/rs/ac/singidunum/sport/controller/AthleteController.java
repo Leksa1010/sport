@@ -27,6 +27,11 @@ public class AthleteController {
         return service.getAthleteById(id);
     }
 
+    @GetMapping(path = "/{name}")
+    public Optional<Athlete> getAthleteByName(@PathVariable String name) {
+        return service.getAthleteByName(name);
+    }
+
     @GetMapping(path = "/gender/{gender}")
     public List<Athlete> getAthleteByGender(@PathVariable Gender gender) {
         return service.getAthleteByGender(gender);

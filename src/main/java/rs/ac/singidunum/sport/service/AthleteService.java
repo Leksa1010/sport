@@ -23,6 +23,10 @@ public class AthleteService {
         return repository.findByIdAndDeletedAtIsNull(id);
     }
 
+    public Optional<Athlete> getAthleteByName(String name) {
+        return repository.findByNameAndDeletedAtIsNull(name);
+    }
+
     public List<Athlete> getAthleteByGender(Gender gender) {
         return repository.findByGenderAndDeletedAtIsNull(gender);
     }

@@ -15,5 +15,7 @@ public interface AthleteRepository extends JpaRepository<Athlete, Integer> {
 
     Optional<Athlete> findByIdAndDeletedAtIsNull(Integer id);
 
+    Optional<Athlete> findByNameAndDeletedAtIsNull(String name);
+
     List<Athlete> findByGenderAndDeletedAtIsNull(Gender gender);
 }
