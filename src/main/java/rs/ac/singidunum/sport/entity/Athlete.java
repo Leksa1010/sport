@@ -32,6 +32,12 @@ public class Athlete {
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Column(nullable = false)
+    private Integer coachId;
+
+    @Column(nullable = false)
+    private Integer sportId;
+
     private LocalDateTime updatedAt;
 
     @JsonIgnore
