@@ -19,7 +19,7 @@ public class Sport {
     @Column(name = "sport_id")
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
