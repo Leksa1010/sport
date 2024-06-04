@@ -2,14 +2,14 @@ const params = new URLSearchParams(window.location.search)
 const id = params.get('id')
 
 if (id === null || id === '')
-    window.location.href = './index.html'
+    window.location.href = './athlete.html'
 
 fetch('https://localhost:8000/api/athlete/id/' + id)
     .then(rsp => {
         if (rsp.status === 200)
             return rsp.json()
         alert("Sportista nije pronađen")
-        window.location.href = './index.html'
+        window.location.href = './athlete.html'
     })
     .then(data=> {
         document.getElementById('id').value = data.id
