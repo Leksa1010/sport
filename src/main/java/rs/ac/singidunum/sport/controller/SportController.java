@@ -1,6 +1,7 @@
 package rs.ac.singidunum.sport.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.singidunum.sport.entity.Sport;
@@ -26,4 +27,14 @@ public class SportController {
         return ResponseEntity.of(service.getSportById(id));
     }
 
+    @PostMapping
+    public Sport createSport(@RequestBody Sport sport) {
+        return service.createSport(sport);
+    }
+
+    @DeleteMapping(path = "/id/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void deleteSport(@PathVariable Integer id) {
+        service.deleteSport(id);
+    }
 }

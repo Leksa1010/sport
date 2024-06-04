@@ -1,6 +1,7 @@
 package rs.ac.singidunum.sport.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.singidunum.sport.Gender;
@@ -36,5 +37,21 @@ public class AthleteController {
     @GetMapping(path = "/gender/{gender}")
     public List<Athlete> getAthleteByGender(@PathVariable Gender gender) {
         return service.getAthleteByGender(gender);
+    }
+
+    @PostMapping
+    public Athlete createAthlete(@RequestBody Athlete athlete) {
+        return service.createAthlete(athlete);
+    }
+
+    @PutMapping(path = "/id/{id}")
+    public Athlete updateAthlete(@PathVariable Integer id, Athlete athlete) {
+        return service.updateAthlete(id, athlete);
+    }
+
+    @DeleteMapping(path = "/id/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void deleteAthlete(@PathVariable Integer id) {
+        service.deleteAthlete(id);
     }
 }

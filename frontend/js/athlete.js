@@ -18,7 +18,7 @@ function fetchAthletes(url = '') {
             if (data.length == 0) {
 
                 alert('Sportista nije pronađen')
-                window.location.href = '/'
+                window.location.href = './athlete.html'
                 return
             }
             data.forEach(athlete => {
