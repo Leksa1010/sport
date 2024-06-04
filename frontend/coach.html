@@ -40,16 +40,16 @@
                             <i class="fa-solid fa-person-snowboarding"></i> Sportovi
                         </a>
                     </li>
-                    <form class="d-flex" role="search">
+                    <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Nađi sportistu" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">
+                        <button class="btn btn-outline-success" type="button" id="search-btn">
                             <i class="fa-brands fa-searchengin"></i>
                         </button>
                     </form>
             </div>
         </div>
     </nav>
-    <h1 class="h3">Lista sportista</h1>
+    <h1 class="h3">Lista trenera</h1>
     <table class="table">
         <thead>
         <tr>
@@ -72,6 +72,7 @@
         <td class="surname"></td>
         <td class="sport"></td>
         <td class="created"></td>
+        <td class="updated"></td>
         <td>
             <div class="btn-group">
                 <a href="#" class="btn btn-sm btn-primary edit">
