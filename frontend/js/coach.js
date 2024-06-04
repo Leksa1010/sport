@@ -1,6 +1,7 @@
 const table = document.getElementById('table')
 const template = document.getElementById('coach')
 
+
 fetch('http://localhost:8000/api/coach')
     .then(rsp => rsp.json())
     .then(data => {
