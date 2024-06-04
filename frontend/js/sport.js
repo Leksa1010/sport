@@ -10,7 +10,6 @@ fetch('http://localhost:8000/api/sport')
             copy.querySelector('.id').innerText = sport.id
             copy.querySelector('.name').innerText = sport.name
             copy.querySelector('.created').innerText = formatDate(sport.createdAt)
-            copy.querySelector('.updated').innerText = formatDate(sport.updatedAt)
             table.appendChild(copy)
         })
     })

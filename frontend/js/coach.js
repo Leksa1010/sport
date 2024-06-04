@@ -13,6 +13,7 @@ fetch('http://localhost:8000/api/coach')
             copy.querySelector('.sport').innerText = coach.sport.name
             copy.querySelector('.created').innerText = formatDate(coach.createdAt)
             copy.querySelector('.updated').innerText = formatDate(coach.updatedAt)
+            copy.querySelector('.edit').href = `./edit-coach.html?id=${coach.id}`
             table.appendChild(copy)
         })
     })

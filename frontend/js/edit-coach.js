@@ -1,9 +1,9 @@
 const id = params.get('id')
 
 if (id === null || id === '')
-    window.location.href = './athlete.html'
+    window.location.href = './coach.html'
 
-fetch('http://localhost:8000/api/athlete/id/' + id)
+fetch('http://localhost:8000/api/coach/id/' + id)
     .then(rsp => {
         if (rsp.status === 200)
             return rsp.json()
@@ -16,11 +16,8 @@ fetch('http://localhost:8000/api/athlete/id/' + id)
         document.getElementById('id').value = data.id
         document.getElementById('name').value = data.name
         document.getElementById('surname').value = data.surname
-        document.getElementById('gender').value = data.gender
         document.getElementById('sport').value = data.sport.name
-        document.getElementById('coach').value = data.coach.name
         document.getElementById('created').value = formatDate(data.createdAt)
         document.getElementById('updated').value = formatDate(data.updated)
-
 
     })
