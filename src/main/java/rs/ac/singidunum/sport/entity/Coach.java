@@ -30,7 +30,7 @@ public class Coach {
 
     @ManyToOne(optional = false)
     @JoinColumn(name ="sport_id" , nullable = false)
-    private Sport sportId;
+    private Sport sport;
 
     private LocalDateTime updatedAt;
 

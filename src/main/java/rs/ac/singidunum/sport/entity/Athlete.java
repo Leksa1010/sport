@@ -34,11 +34,11 @@ public class Athlete {
 
     @ManyToOne(optional = false)
     @JoinColumn(name ="sport_id" , nullable = false)
-    private Sport sportId;
+    private Sport sport;
 
     @ManyToOne(optional = false)
     @JoinColumn(name ="coach_id" , nullable = false)
-    private Coach coachId;
+    private Coach coach;
 
     private LocalDateTime updatedAt;
 
