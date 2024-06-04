@@ -1,6 +1,7 @@
 package rs.ac.singidunum.sport.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.singidunum.sport.Gender;
 import rs.ac.singidunum.sport.entity.Athlete;
@@ -23,8 +24,8 @@ public class AthleteController {
     }
 
     @GetMapping(path = "/id/{id}")
-    public Optional<Athlete> getAthleteById(@PathVariable Integer id) {
-        return service.getAthleteById(id);
+    public ResponseEntity<Athlete> getAthleteById(@PathVariable Integer id) {
+        return ResponseEntity.of(service.getAthleteById(id));
     }
 
     @GetMapping(path = "/name/{name}")
