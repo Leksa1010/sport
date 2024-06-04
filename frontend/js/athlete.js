@@ -10,8 +10,8 @@ if (searchParam != null && searchParam != '') {
     fetchAthletes()
 }
 
-function fetchAthletes(url) {
-    fetch(`http://localhost:8000/api/athlete`)// treba dodati ${url} na kraju template
+function fetchAthletes(url = '') {
+    fetch(`http://localhost:8000/api/athlete${url}`)// treba dodati ${url} na kraju template
         .then(rsp => rsp.json())
         .then(data => {
             if (data.length == 0) {

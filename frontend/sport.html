@@ -31,12 +31,12 @@
                             <i class="fa-solid fa-child-reaching"></i> Sportisti
                         </a>
                     </li>
-                    <a class="nav-link active" aria-current="page" href="./coach.html">
+                    <a class="nav-link" aria-current="page" href="./coach.html">
                         <i class="fa-solid fa-users"></i> Treneri
                     </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./sport.html">
+                        <a class="nav-link active" href="./sport.html">
                             <i class="fa-solid fa-person-snowboarding"></i> Sportovi
                         </a>
                     </li>
@@ -50,13 +50,11 @@
             </div>
         </div>
     </nav>
-    <h1 class="h3">Lista trenera</h1>
+    <h1 class="h3">Lista sportova</h1>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Ime</th>
-            <th scope="col">Prezime</th>
             <th scope="col">Sport</th>
             <th scope="col">Datum unosa</th>
             <th scope="col">Datum izmene</th>
@@ -66,12 +64,10 @@
         <tbody id="table"></tbody>
     </table>
 </div>
-<template id="coach">
+<template id="sport">
     <tr>
         <th scope="row" class="id"></th>
         <td class="name"></td>
-        <td class="surname"></td>
-        <td class="sport"></td>
         <td class="created"></td>
         <td class="updated"></td>
         <td>
@@ -90,7 +86,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 <script src="./js/search.js"></script>
-<script src="js/coach.js"></script>
+<script src="js/sport.js"></script>
 
 </body>
 
