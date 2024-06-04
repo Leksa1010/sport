@@ -29,8 +29,8 @@ public class AthleteController {
     }
 
     @GetMapping(path = "/name/{name}")
-    public Optional<Athlete> getAthleteByName(@PathVariable String name) {
-        return service.getAthleteByName(name);
+    public ResponseEntity<Athlete> getAthleteByName(@PathVariable String name) {
+        return ResponseEntity.of(service.getAthleteByName(name));
     }
 
     @GetMapping(path = "/gender/{gender}")
