@@ -1,4 +1,3 @@
-const params = new URLSearchParams(window.location.search)
 const id = params.get('id')
 
 if (id === null || id === '')
@@ -20,8 +19,8 @@ fetch('http://localhost:8000/api/athlete/id/' + id)
         document.getElementById('gender').value = data.gender
         document.getElementById('sport').value = data.sport
         document.getElementById('coach').value = data.coach
-        document.getElementById('created').value = data.createdAt
-        document.getElementById('updated').value = data.updated
+        document.getElementById('created').value = formatDate(data.createdAt)
+        document.getElementById('updated').value = formatDate(data.updated)
 
 
     })

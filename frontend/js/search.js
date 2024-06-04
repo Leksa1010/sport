@@ -1,11 +1,10 @@
 const searchInput = document.getElementById('search')
 const params = new URLSearchParams(window.location.search)
-const searchParam = params.get('search')
+const searchParam = params.get(params)
 
 
 if (searchParam != null && searchParam != '') {
     searchInput.value = searchParam
-
 }
 
 searchInput.addEventListener('keypress', (e) => {
