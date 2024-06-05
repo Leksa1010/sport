@@ -1,37 +1,37 @@
-const id = new URLSearchParams(window.location.search).get('id');
+const id = new URLSearchParams(window.location.search).get('id')
 
 if (!id) {
-    window.location.href = './athlete.html';
+    window.location.href = './athlete.html'
 }
 
-const breadcrumb = document.getElementById('breadcrumb');
-const aid = document.getElementById('id');
-const aname = document.getElementById('name');
-const surname = document.getElementById('surname');
-const gender = document.getElementById('gender');
-const sport = document.getElementById('sport');
-const coach = document.getElementById('coach');
-const created = document.getElementById('created');
-const updated = document.getElementById('updated');
+const breadcrumb = document.getElementById('breadcrumb')
+const aid = document.getElementById('id')
+const aname = document.getElementById('name')
+const surname = document.getElementById('surname')
+const gender = document.getElementById('gender')
+const sport = document.getElementById('sport')
+const coach = document.getElementById('coach')
+const created = document.getElementById('created')
+const updated = document.getElementById('updated')
 
 fetch(`http://localhost:8000/api/athlete/id/${id}`)
     .then(rsp => {
         if (rsp.status === 200) {
             return rsp.json();
         }
-        alert('Sportista nije pronađen');
-        window.location.href = './athlete.html';
+        alert('Sportista nije pronađen')
+        window.location.href = './athlete.html'
     })
     .then(data => {
-        breadcrumb.innerText = `${data.name} ${data.surname}`;
-        aid.value = data.id;
-        aname.value = data.name;
-        surname.value = data.surname;
-        gender.value = data.gender;
-        sport.value = data.sport.name;
-        coach.value = data.coach.name;
-        created.value = formatDate(data.createdAt);
-        updated.value = formatDate(data.updatedAt);
+        breadcrumb.innerText = `${data.name} ${data.surname}`
+        aid.value = data.id
+        aname.value = data.name
+        surname.value = data.surname
+        gender.value = data.gender
+        sport.value = data.sport.name
+        coach.value = data.coach.name
+        created.value = formatDate(data.createdAt)
+        updated.value = formatDate(data.updatedAt)
 
         document.getElementById('save').addEventListener('click', () => {
             fetch(`http://localhost:8000/api/athlete/id/${data.id}`, {
@@ -73,14 +73,11 @@ fetch(`http://localhost:8000/api/athlete/id/${id}`)
                         return;
                     }
                     return rsp.json().then(error => {
-                        alert(`Izmena sportiste nije uspela: ${error.message} (HTTP ${rsp.status})`);
-                    });
+                        alert(`Izmena sportiste nije uspela: ${error.message} (HTTP ${rsp.status})`)
+                    })
                 })
                 .catch(error => {
-                    alert(`Došlo je do greške: ${error.message}`);
-                });
-        });
+                    alert(`Došlo je do greške: ${error.message}`)
+                })
+        })
     })
-    .catch(error => {
-        alert(`Došlo je do greške prilikom preuzimanja podataka: ${error.message}`);
-    });

@@ -32,6 +32,20 @@ function fetchAthletes(url = '') {
                 copy.querySelector('.created').innerText = formatDate(athlete.createdAt)
                 copy.querySelector('.updated').innerText = formatDate(athlete.updatedAt)
                 copy.querySelector('.edit').href = `./edit-athlete.html?id=${athlete.id}`
+                copy.querySelector('.remove').addEventListener('click', () => {
+                    if (confirm(`Želite obrisati sportistu ${athlete.name} ${athlete.surname}`)) {
+                        fetch(`http://localhost:8000/api/athlete/id/${athlete.id}`, {
+                            method: 'DELETE',
+                        })
+                            .then(rsp => {
+                                if (rsp.status == 204) {
+                                    window.location.href = './athlete.html'
+                                    return
+                                }
+                                alert(`Brisanje sportiste nije uspelo (HTTP ${rsp.status})`)
+                            })
+                    }
+                })
                 table.appendChild(copy)
             })
         })

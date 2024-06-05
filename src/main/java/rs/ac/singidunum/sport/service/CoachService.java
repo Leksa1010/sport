@@ -3,9 +3,6 @@ package rs.ac.singidunum.sport.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rs.ac.singidunum.sport.entity.Coach;
-import rs.ac.singidunum.sport.entity.Coach;
-import rs.ac.singidunum.sport.entity.Coach;
-import rs.ac.singidunum.sport.model.CoachModel;
 import rs.ac.singidunum.sport.model.CoachModel;
 import rs.ac.singidunum.sport.repository.CoachRepository;
 
