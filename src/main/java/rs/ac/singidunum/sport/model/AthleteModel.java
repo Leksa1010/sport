@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rs.ac.singidunum.sport.Gender;
+import rs.ac.singidunum.sport.entity.Coach;
 import rs.ac.singidunum.sport.entity.Sport;
 
 @NoArgsConstructor
@@ -15,4 +16,5 @@ public class AthleteModel {
     private String surname;
     private Gender gender;
     private Sport sport;
+    private Coach coach;
 }

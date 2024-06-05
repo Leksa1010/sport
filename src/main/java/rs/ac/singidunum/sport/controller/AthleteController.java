@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.singidunum.sport.Gender;
 import rs.ac.singidunum.sport.entity.Athlete;
+import rs.ac.singidunum.sport.model.AthleteModel;
 import rs.ac.singidunum.sport.service.AthleteService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/athlete")
@@ -40,12 +40,12 @@ public class AthleteController {
     }
 
     @PostMapping
-    public Athlete createAthlete(@RequestBody Athlete athlete) {
+    public Athlete createAthlete(@RequestBody AthleteModel athlete) {
         return service.createAthlete(athlete);
     }
 
     @PutMapping(path = "/id/{id}")
-    public Athlete updateAthlete(@PathVariable Integer id, Athlete athlete) {
+    public Athlete updateAthlete(@PathVariable Integer id, @RequestBody AthleteModel athlete) {
         return service.updateAthlete(id, athlete);
     }
 

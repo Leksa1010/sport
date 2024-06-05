@@ -14,7 +14,6 @@ const created = document.getElementById('created')
 const updated = document.getElementById('updated')
 
 
-
 fetch('http://localhost:8000/api/athlete/id/' + id)
     .then(rsp => {
         if (rsp.status === 200)
@@ -24,7 +23,7 @@ fetch('http://localhost:8000/api/athlete/id/' + id)
         window.location.href = './athlete.html'
     })
     .then(data => {
-        breadcrumb.innerText= `${data.name} ${data.surname}`
+        breadcrumb.innerText = `${data.name} ${data.surname}`
         aid.value = data.id
         aname.value = data.name
         surname.value = data.surname
@@ -35,12 +34,25 @@ fetch('http://localhost:8000/api/athlete/id/' + id)
         updated.value = formatDate(data.updated)
 
         document.getElementById('save').addEventListener('click', () => {
-            fetch({
-                url: `http://localhost:8000/api/athlete/id/${data.id}`
-                method: 'PUT'
-                body: {
-                    
-                }
+            fetch(`http://localhost:8000/api/athlete/id/${data.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name.value,
+                    surname: surname.value,
+                    gender: gender.value,
+                    sport: sport.value,
+                    coach: coach.value
+                })
             })
+                .then(rsp => {
+                    if (rsp.ok) {
+                        window.location.href = './index.html'
+                        return
+                    }
+                    alert(`Izmena studenta nije uspela (HTTP ${rsp.status})`)
+                })
         })
     })
