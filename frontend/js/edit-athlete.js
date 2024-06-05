@@ -31,7 +31,7 @@ fetch('http://localhost:8000/api/athlete/id/' + id)
         sport.value = data.sport.name
         coach.value = data.coach.name
         created.value = formatDate(data.createdAt)
-        updated.value = formatDate(data.updated)
+        updated.value = formatDate(data.updatedAt)
 
         document.getElementById('save').addEventListener('click', () => {
             fetch(`http://localhost:8000/api/athlete/id/${data.id}`, {
@@ -43,16 +43,31 @@ fetch('http://localhost:8000/api/athlete/id/' + id)
                     name: name.value,
                     surname: surname.value,
                     gender: gender.value,
-                    sport: sport.value,
-                    coach: coach.value
+                    sport: {
+                        id: data.sport.id,
+                        name: data.sport.name,
+                        createdAt: data.sport.createdAt,
+                        updatedAt: data.sport.updatedAt
+                    },
+                    coach: {
+                        id: data.coach.id,
+                        name: data.coach.name,
+                        sport: {
+                            id: data.sport.id,
+                            name: data.sport.name,
+                            createdAt: data.sport.createdAt,
+                            updatedAt: data.sport.updatedAt
+                        }
+                    }
+
                 })
             })
                 .then(rsp => {
                     if (rsp.ok) {
-                        window.location.href = './index.html'
+                        window.location.href = './athlete.html'
                         return
                     }
-                    alert(`Izmena studenta nije uspela (HTTP ${rsp.status})`)
+                    alert(`Izmena sportiste nije uspela (HTTP ${rsp.status})`)
                 })
         })
     })
