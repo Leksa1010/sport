@@ -8,7 +8,6 @@ const breadcrumb = document.getElementById('breadcrumb')
 const cid = document.getElementById('id')
 const cname = document.getElementById('name')
 const surname = document.getElementById('surname')
-const sport = document.getElementById('sport')
 const created = document.getElementById('created')
 const updated = document.getElementById('updated')
 
@@ -25,7 +24,6 @@ fetch(`http://localhost:8000/api/coach/id/${id}`)
         cid.value = data.id
         cname.value = data.name
         surname.value = data.surname
-        sport.value = data.sport.name
         created.value = formatDate(data.createdAt)
         updated.value = formatDate(data.updatedAt)
 
@@ -40,13 +38,7 @@ fetch(`http://localhost:8000/api/coach/id/${id}`)
                     name: cname.value,
                     surname: surname.value,
                     createdAt: data.createdAt,
-                    updatedAt: data.updatedAt,
-                    sport: {
-                        id: data.sport.id,
-                        name: sport.value,
-                        createdAt: data.sport.createdAt,
-                        updatedAt: data.sport.updatedAt
-                    }
+                    updatedAt: data.updatedAt
                 })
             })
                 .then(rsp => {

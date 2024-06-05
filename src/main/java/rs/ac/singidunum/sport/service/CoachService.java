@@ -32,7 +32,6 @@ public class CoachService {
         Coach coach = new Coach();
         coach.setName(model.getName());
         coach.setSurname(model.getSurname());
-        coach.setSport(model.getSport());
         return repository.save(coach);
     }
 
@@ -40,7 +39,6 @@ public class CoachService {
         Coach coach = repository.findById(id).orElse(null);
         coach.setName(model.getName());
         coach.setSurname(model.getSurname());
-        coach.setSport(model.getSport());
         coach.setUpdatedAt(LocalDateTime.now());
         return repository.save(coach);
     }

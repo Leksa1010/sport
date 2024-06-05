@@ -28,10 +28,6 @@ public class Coach {
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name ="sport_id" , nullable = false)
-    private Sport sport;
-
     private LocalDateTime updatedAt;
 
     @JsonIgnore
