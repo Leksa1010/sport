@@ -58,12 +58,6 @@ fetch(`http://localhost:8000/api/athlete/id/${id}`)
                         surname: data.coach.surname,
                         createdAt: data.coach.createdAt,
                         updatedAt: data.coach.updatedAt,
-                        sport: {
-                            id: data.coach.sport.id,
-                            name: data.coach.sport.name,
-                            createdAt: data.coach.sport.createdAt,
-                            updatedAt: data.coach.sport.updatedAt
-                        }
                     }
                 })
             })
