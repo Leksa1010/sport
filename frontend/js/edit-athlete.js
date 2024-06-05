@@ -27,7 +27,18 @@ fetch(`http://localhost:8000/api/athlete/id/${id}`)
         aid.value = data.id
         aname.value = data.name
         surname.value = data.surname
-        gender.value = data.gender
+        //gender.value = data.gender
+
+        const genders = ['M', 'F'];
+        genders.forEach(g => {
+            const genderOption = document.createElement('option');
+            genderOption.value = g;
+            genderOption.text = g;
+            if (g === data.gender) {
+                genderOption.selected = true;
+            }
+            gender.appendChild(genderOption);
+        });
         // sport.value = data.sport.name
         // Loading sport
         fetch('http://localhost:8000/api/sport')
