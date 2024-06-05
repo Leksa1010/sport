@@ -50,57 +50,34 @@
             </div>
         </div>
     </nav>
-    <h1 class="h3">
-        <span id="search-title">Lista sportista</span>
-        <a href="add-athlete.html" class="btn btn-sm btn-success">
-            <i class="fa-solid fa-plus"></i> Dodaj sportistu
-        </a>
-    </h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Ime</th>
-            <th scope="col">Prezime</th>
-            <th scope="col">Pol</th>
-            <th scope="col">Datum unosa</th>
-            <th scope="col">Sport</th>
-            <th scope="col">Trener</th>
-            <th scope="col">Datum izmene</th>
-            <th scope="col">Opcije</th>
-        </tr>
-        </thead>
-        <tbody id="table"></tbody>
-    </table>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./athlete.html">Treneri</a></li>
+            <li class="breadcrumb-item active" aria-current="page" id="breadcrumb"></li>
+        </ol>
+    </nav>
+    <h1 class="h3">Dodavanje novog trenera</h1>
+    <div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Ime</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Prezime</label>
+            <input type="text" class="form-control" id="surname">
+        </div>
+        <button type="submit" class="btn btn-success" id="save">
+            <i class="fa-regular fa-floppy-disk"></i> Sačuvaj
+        </button>
+
+    </div>
 </div>
-<template id="athlete">
-    <tr>
-        <th scope="row" class="id"></th>
-        <td class="name"></td>
-        <td class="surname"></td>
-        <td class="gender"></td>
-        <td class="created"></td>
-        <td class="sport"></td>
-        <td class="coach"></td>
-        <td class="updated"></td>
-        <td>
-            <div class="btn-group">
-                <a href="#" class="btn btn-sm btn-primary edit">
-                    <i class="fa-solid fa-pen-to-square"></i> Izmeni
-                </a>
-                <button type="button" class="btn btn-sm btn-danger remove">
-                    <i class="fa-solid fa-trash"></i> Obriši
-                </button>
-            </div>
-        </td>
-    </tr>
-</template>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 <script src="./js/search.js"></script>
-<script src="js/athlete.js"></script>
-
+<script src="js/add-coach.js"></script>
 </body>
 
 </html>

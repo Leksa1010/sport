@@ -28,8 +28,37 @@ fetch(`http://localhost:8000/api/athlete/id/${id}`)
         aname.value = data.name
         surname.value = data.surname
         gender.value = data.gender
-        sport.value = data.sport.name
-        coach.value = data.coach.name
+        // sport.value = data.sport.name
+        // Loading sport
+        fetch('http://localhost:8000/api/sport')
+            .then(rsp => rsp.json())
+            .then(sportData => {
+                sportData.forEach(sportType => {
+                    const sportOption = document.createElement('option');
+                    if (sportType.id === data.sport.id) {
+                        sportOption.selected = true;
+                    }
+                    sportOption.value = sportType.id;
+                    sportOption.text = sportType.name;
+                    sport.appendChild(sportOption);
+                })
+            })
+
+        //coach.value = data.coach.name
+        //Loading coach
+        fetch('http://localhost:8000/api/coach')
+            .then(rsp => rsp.json())
+            .then(coachData => {
+                coachData.forEach(coachType => {
+                    const coachOption = document.createElement('option');
+                    if (coachType.id === data.coach.id) {
+                        coachOption.selected = true;
+                    }
+                    coachOption.value = coachType.id;
+                    coachOption.text = coachType.name;
+                    coach.appendChild(coachOption);
+                })
+            })
         created.value = formatDate(data.createdAt)
         updated.value = formatDate(data.updatedAt)
 
