@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.singidunum.sport.entity.Coach;
+import rs.ac.singidunum.sport.model.CoachModel;
 import rs.ac.singidunum.sport.service.CoachService;
 
 import java.util.List;
@@ -33,12 +34,12 @@ public class CoachController {
     }
 
     @PostMapping
-    public Coach createCoach(@RequestBody Coach coach) {
+    public Coach createCoach(@RequestBody CoachModel coach) {
         return service.createCoach(coach);
     }
 
     @PutMapping(path = "/id/{id}")
-    public Coach updateCoach(@PathVariable Integer id, Coach coach) {
+    public Coach updateCoach(@PathVariable Integer id, CoachModel coach) {
         return service.updateCoach(id, coach);
     }
 

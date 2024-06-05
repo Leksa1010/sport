@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rs.ac.singidunum.sport.entity.Coach;
 import rs.ac.singidunum.sport.entity.Coach;
+import rs.ac.singidunum.sport.entity.Coach;
+import rs.ac.singidunum.sport.model.CoachModel;
+import rs.ac.singidunum.sport.model.CoachModel;
 import rs.ac.singidunum.sport.repository.CoachRepository;
 
 import java.time.LocalDateTime;
@@ -28,14 +31,19 @@ public class CoachService {
         return repository.findByNameAndDeletedAtIsNull(name);
     }
 
-    public Coach createCoach(Coach coach) {
-        coach.setId(null);
-        coach.setCreatedAt(LocalDateTime.now());
+    public Coach createCoach(CoachModel model) {
+        Coach coach = new Coach();
+        coach.setName(model.getName());
+        coach.setSurname(model.getSurname());
+        coach.setSport(model.getSport());
         return repository.save(coach);
     }
 
-    public Coach updateCoach(Integer id, Coach coach) {
-        coach.setId(id);
+    public Coach updateCoach(Integer id, CoachModel model) {
+        Coach coach = repository.findById(id).orElse(null);
+        coach.setName(model.getName());
+        coach.setSurname(model.getSurname());
+        coach.setSport(model.getSport());
         coach.setUpdatedAt(LocalDateTime.now());
         return repository.save(coach);
     }
