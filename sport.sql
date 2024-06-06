@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `sport` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `sport`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sport
@@ -26,10 +28,10 @@ CREATE TABLE `athlete` (
   `athlete_id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `surname` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `gender` enum('M','F','O') COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'O',
+  `gender` enum('M','F') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sport_id` int unsigned NOT NULL DEFAULT '1',
-  `coach_id` int unsigned NOT NULL DEFAULT '1',
+  `sport_id` int unsigned NOT NULL,
+  `coach_id` int unsigned NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`athlete_id`),
@@ -46,7 +48,7 @@ CREATE TABLE `athlete` (
 
 LOCK TABLES `athlete` WRITE;
 /*!40000 ALTER TABLE `athlete` DISABLE KEYS */;
-INSERT INTO `athlete` VALUES (1,'Laza','Lazić','M','2024-06-03 18:26:28',1,1,'2024-06-05 17:26:43',NULL),(2,'Mira','Mirić','F','2024-06-03 18:26:28',1,1,NULL,NULL),(3,'Ivana','Ivanović','F','2024-06-03 18:26:28',1,1,'2024-06-05 16:32:23',NULL),(4,'Maja','Marković','F','2024-06-05 09:26:47',1,1,'2024-06-05 15:30:38',NULL),(5,'Ana','Dragić','F','2024-06-05 09:27:40',1,1,NULL,NULL);
+INSERT INTO `athlete` VALUES (1,'Laza','Lazić','M','2024-06-03 18:26:28',1,1,'2024-06-06 14:36:36',NULL),(2,'Mira','Mirić','F','2024-06-03 18:26:28',1,1,'2024-06-05 21:28:07',NULL),(3,'Ivana','Ivanović','F','2024-06-03 18:26:28',1,1,'2024-06-06 14:36:24',NULL),(4,'Maja','Marković','F','2024-06-05 09:26:47',1,1,'2024-06-05 15:30:38',NULL),(5,'Ana','Dragić','F','2024-06-05 09:27:40',1,1,NULL,NULL);
 /*!40000 ALTER TABLE `athlete` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +67,7 @@ CREATE TABLE `coach` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`coach_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +76,7 @@ CREATE TABLE `coach` (
 
 LOCK TABLES `coach` WRITE;
 /*!40000 ALTER TABLE `coach` DISABLE KEYS */;
-INSERT INTO `coach` VALUES (1,'Dragomir','Marković','2024-06-03 21:13:07','2024-06-05 17:35:03',NULL),(2,'Slavica','Rakonjac','2024-06-03 21:13:07',NULL,NULL),(3,'Miodrag','Nedeljković','2024-06-03 21:13:07',NULL,NULL),(4,'Stefan','Jovanović','2024-06-03 21:13:07',NULL,NULL),(5,'Jugoslav','Bulat','2024-06-05 09:29:53',NULL,NULL);
+INSERT INTO `coach` VALUES (1,'Dragomir','Marković','2024-06-03 21:13:07','2024-06-05 21:26:53',NULL),(2,'Slavica','Rakonjac','2024-06-03 21:13:07',NULL,NULL),(3,'Miodrag','Nedeljković','2024-06-03 21:13:07',NULL,NULL),(4,'Stefan','Jovanović','2024-06-03 21:13:07',NULL,'2024-06-05 21:26:23'),(5,'Jugoslav','Bulat','2024-06-05 09:29:53',NULL,'2024-06-05 22:20:56'),(6,'Milo','Milo','2024-06-05 22:11:49',NULL,'2024-06-05 22:11:53'),(7,'Marko','Marković','2024-06-05 22:21:03',NULL,NULL),(9,'asd','asf','2024-06-05 22:44:13',NULL,NULL);
 /*!40000 ALTER TABLE `coach` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +95,7 @@ CREATE TABLE `sport` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`sport_id`),
   UNIQUE KEY `uq_sport_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +104,7 @@ CREATE TABLE `sport` (
 
 LOCK TABLES `sport` WRITE;
 /*!40000 ALTER TABLE `sport` DISABLE KEYS */;
-INSERT INTO `sport` VALUES (1,'Plivanje','2024-06-03 21:32:40',NULL,NULL),(2,'Fudbal','2024-06-03 21:32:40',NULL,NULL),(3,'Odbojka','2024-06-03 21:32:40',NULL,NULL),(4,'Košarka','2024-06-03 21:32:40',NULL,NULL),(5,'Rukomet','2024-06-03 21:32:40',NULL,NULL),(6,'Karate','2024-06-03 21:32:40',NULL,NULL),(7,'Aikido','2024-06-03 21:32:40',NULL,NULL),(8,'Vaterpolo','2024-06-03 21:32:40',NULL,NULL),(9,'Hokej','2024-06-03 21:32:40',NULL,NULL),(10,'Klizanje','2024-06-03 21:32:40',NULL,NULL),(11,'Rvanje','2024-06-05 17:43:38',NULL,'2024-06-05 17:45:55');
+INSERT INTO `sport` VALUES (1,'Plivanje','2024-06-03 21:32:40',NULL,NULL),(2,'Fudbal','2024-06-03 21:32:40',NULL,NULL),(3,'Odbojka','2024-06-03 21:32:40',NULL,NULL),(4,'Košarka','2024-06-03 21:32:40',NULL,NULL),(5,'Rukomet','2024-06-03 21:32:40',NULL,NULL),(6,'Karate','2024-06-03 21:32:40',NULL,NULL),(7,'Aikido','2024-06-03 21:32:40',NULL,NULL),(8,'Vaterpolo','2024-06-03 21:32:40',NULL,NULL),(9,'Hokej','2024-06-03 21:32:40',NULL,NULL),(10,'Klizanje','2024-06-03 21:32:40',NULL,NULL),(11,'Rvanje','2024-06-05 17:43:38',NULL,NULL),(12,'Ritmička gimnastika','2024-06-05 22:16:03',NULL,NULL),(13,'Jahanje konja','2024-06-05 22:21:17',NULL,NULL);
 /*!40000 ALTER TABLE `sport` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -115,4 +117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-05 17:46:46
+-- Dump completed on 2024-06-07  1:24:47
